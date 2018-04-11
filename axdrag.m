@@ -1,5 +1,6 @@
 function axdrag(action)
     %AXDRAG  Pan and zoom with simple keystrokes
+    
     %   Use this tool to move quickly around the data displayed in a 2-D plot.
     %   Make sure the figure has focus, and then press any of the following
     %   keys to zoom in or out. Clicking and dragging will pan the data.
