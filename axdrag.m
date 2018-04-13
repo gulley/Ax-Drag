@@ -1,6 +1,5 @@
 function axdrag(action)
     %AXDRAG  Pan and zoom with simple keystrokes
-    
     %   Use this tool to move quickly around the data displayed in a 2-D plot.
     %   Make sure the figure has focus, and then press any of the following
     %   keys to zoom in or out. Clicking and dragging will pan the data.
@@ -26,12 +25,12 @@ function axdrag(action)
     %   axdrag
     %   % Now click, drag, and use special keys ...
     
-    %   Copyright 2003, The MathWorks, Inc.
-    %   Ned Gulley, March 2003
+    %   Copyright 2018, The MathWorks, Inc.
+    %   Ned Gulley
     
     persistent x0 dx
     
-    if nargin < 1,
+    if nargin < 1
         action = 'initialize';
     end
     
@@ -86,63 +85,63 @@ function axdrag(action)
                 return
             end
             
-            if currChar=='a',
+            if currChar=='a'
                 axis auto
                 
-            elseif currChar=='e',
+            elseif currChar=='e'
                 axis equal
                 
-            elseif currChar=='n',
+            elseif currChar=='n'
                 axis normal
                 
-            elseif currChar=='g',
+            elseif currChar=='g'
                 grid
                 
-            elseif currChar==28,
+            elseif currChar==28
                 xLim=get(gca,'XLim');
                 xLimNew = xLim + panFactor*diff(xLim);
                 set(gca,'XLim',xLimNew)
                 
-            elseif currChar==29,
+            elseif currChar==29
                 xLim=get(gca,'XLim');
                 xLimNew = xLim - panFactor*diff(xLim);
                 set(gca,'XLim',xLimNew)
                 
-            elseif currChar==30,
+            elseif currChar==30
                 yLim=get(gca,'YLim');
                 yLimNew = yLim - panFactor*diff(yLim);
                 set(gca,'YLim',yLimNew)
                 
-            elseif currChar==31,
+            elseif currChar==31
                 yLim=get(gca,'YLim');
                 yLimNew = yLim + panFactor*diff(yLim);
                 set(gca,'YLim',yLimNew)
                 
-            elseif abs(currChar)==32,
-                if isempty(get(gca,'XTick')),
+            elseif abs(currChar)==32
+                if isempty(get(gca,'XTick'))
                     set(gca,'XTickMode','auto','YTickMode','auto')
                 else
                     set(gca,'XTick',[],'YTick',[],'Box','on')
                 end
                 
-            elseif (currChar=='x') || (currChar=='X'),
-                if currChar == 'X',
+            elseif (currChar=='x') || (currChar=='X')
+                if currChar == 'X'
                     zoomFactor=1/zoomFactor;
                 end
                 xLim=get(gca,'XLim');
                 xLimNew = [0 zoomFactor*diff(xLim)] + xLim(1) + (1-zoomFactor)*diff(xLim)/2;
                 set(gca,'XLim',xLimNew)
                 
-            elseif (currChar=='y') || (currChar=='Y'),
-                if currChar == 'Y',
+            elseif (currChar=='y') || (currChar=='Y')
+                if currChar == 'Y'
                     zoomFactor=1/zoomFactor;
                 end
                 yLim=get(gca,'YLim');
                 yLimNew = [0 zoomFactor*diff(yLim)] + yLim(1) + (1-zoomFactor)*diff(yLim)/2;
                 set(gca,'YLim',yLimNew)
                 
-            elseif (currChar=='z') || (currChar=='Z'),
-                if currChar == 'Z',
+            elseif (currChar=='z') || (currChar=='Z')
+                if currChar == 'Z'
                     zoomFactor=1/zoomFactor;
                 end
                 xLim=get(gca,'XLim');
@@ -153,7 +152,7 @@ function axdrag(action)
                 
                 set(gca,'XLim',xLimNew,'YLim',yLimNew)
                 
-            elseif currChar=='h',
+            elseif currChar=='h'
                 if helpWasOff
                     str = { ...
                         ' '
