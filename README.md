@@ -1,3 +1,5 @@
+[![View Zoom Keys on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/3090-zoom-keys)
+
 # Pan and zoom with simple keystrokes
 Use this tool to move quickly around the data displayed in a 2-D plot.
 Make sure the figure has focus, and then press any of the following
